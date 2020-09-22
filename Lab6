@@ -100,3 +100,90 @@ while True :
         sleep(0.05)
         board[y][x] = b
 '''
+'''
+#Lab6 not optional challenge
+from sense_hat import SenseHat
+from time import sleep
+
+from random import randint, randrange
+
+s = SenseHat()
+
+pitch = s.get_orientation()['pitch']
+roll = s.get_orientation()['roll']
+
+b = (0,0,0)
+w = (255, 255, 255)
+r = (255, 0, 0)
+g = (0, 255, 0)
+board = [ [r,r,r,b,b,b,r,r],
+           [r,b,b,b,b,b,b,r], 
+           [r,b,b,b,b,b,b,r], 
+           [b,b,b,b,b,b,b,b], 
+           [b,b,r,r,b,b,b,b], 
+           [b,b,r,b,b,b,b,b], 
+           [b,b,b,b,b,b,b,r], 
+           [b,b,r,r,r,b,b,r] ]
+           
+
+def move_marble(pitch, roll, x, y) :
+    new_x = x
+    new_y =y
+    if 1<pitch<179 and x!=0 :
+        new_x -= 1
+    elif 359 > pitch>179 and x != 7:
+        new_x += 1
+    
+    if 1<roll< 179 and y != 7 :
+        new_y += 1
+    elif 359>roll>179 and y!= 0:
+        new_y -=1
+    new_x, new_y = check_wall(x, y, new_x, new_y)
+
+    return new_x, new_y
+
+def check_wall(x, y, new_x, new_y):
+    if board[new_y][new_x] != r:
+        return new_x, new_y
+    elif board[new_y][x] != r:
+        return x, new_y
+    elif board[y][new_x] != r:
+        return new_x, y
+    else :
+        return x,y
+        
+def target(x, y):
+    if board[x][y] == g:
+        print("YOO")
+        return 1
+        
+def target():
+    x = randint(0,7)
+
+    y = randint(0,7)
+
+    return x, y
+
+
+x = 0
+y = 0
+
+game_over = False
+
+a2,b2 = target()
+while True :
+        pitch = s.get_orientation()['pitch']
+        roll = s.get_orientation()['roll']
+        x,y = move_marble(pitch, roll, x, y)
+        print("pitch {0} roll {1}".format(round(pitch,0), round(roll,0)))
+        board[y][x] = w 
+        board[b2][a2] = g
+        board_1D = sum(board, [])
+        s.set_pixels(board_1D)
+        if board[y][x] == g :
+            break
+        sleep(0.05)
+        board[y][x] = b
+        
+s.show_message("Win Liao Lor")
+'''
