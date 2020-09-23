@@ -1,5 +1,4 @@
 from sense_hat import SenseHat
-from textcolor import get_colour
 from time import sleep
 
 from random import randint, randrange
@@ -14,14 +13,14 @@ w = (255, 255, 255)
 r = (255, 0, 0)
 g = (0, 255, 0)
 board = [ [r,r,r,b,b,b,r,r],
-           [r,b,b,b,b,b,b,r], 
-           [r,b,b,b,b,b,b,r], 
-           [b,b,b,b,b,b,b,b], 
+           [r,b,b,b,r,b,b,r], 
+           [r,b,b,b,r,r,b,r], 
+           [b,b,r,b,b,b,b,b], 
            [b,b,r,r,b,b,b,b], 
            [b,b,r,b,b,b,b,b], 
-           [b,b,b,b,b,b,b,r], 
-           [b,b,r,r,r,b,b,r] ]
-           
+           [r,b,b,b,b,b,b,r], 
+           [r,b,r,r,r,b,b,r] ]
+    
 
 def move_marble(pitch, roll, x, y) :
     new_x = x
@@ -49,10 +48,6 @@ def check_wall(x, y, new_x, new_y):
     else :
         return x,y
         
-def target(x, y):
-    if board[x][y] == g:
-        print("YOO")
-        return 1
         
 def target():
     x = randint(0,7)
@@ -62,29 +57,40 @@ def target():
     return x, y
 
 
-x = 0
-y = 0
+x = 3
+y = 4
 
 game_over = False
-
-while not game_over:
-    score = 0
-    a2,b2 = target()
-    while True :
+time = 0
+a2,b2 = target()
+score = 0
+while time< 10 :
         pitch = s.get_orientation()['pitch']
         roll = s.get_orientation()['roll']
         x,y = move_marble(pitch, roll, x, y)
         print("pitch {0} roll {1}".format(round(pitch,0), round(roll,0)))
         board[y][x] = w 
-        board[b2][a2] = g
+        if board[b2][a2] == r:
+            a2,b2 = target()
+            board[b2][a2] = g
+        else :
+            board[b2][a2] = g
         board_1D = sum(board, [])
         s.set_pixels(board_1D)
         if board[y][x] == g :
+            board_1D = sum(board,[])
+            s.set_pixels(board_1D)
             score += 1
-            break
+            a2, b2 = target()
+            time = 0
         sleep(0.05)
         board[y][x] = b
-
+        time += 0.05
+        print(time)
+        
+s.show_message("GONE")
+k = "score is " + str(score)
+s.show_message(k)
 '''
 while True :
         pitch = s.get_orientation()['pitch']
