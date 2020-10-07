@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    /*
+    int studentNo = 0, mark;
+    printf(" student_id:\n ");
+    scanf("%d", &studentNo);
+    while(studentNo != -1){
+    printf(" Enter_mark :\n");
+    scanf("%d", &mark);
+    switch(mark){
+        case 75 ... 100 :
+            printf("marks is A");
+            break;
+        case 65 ... 74 :
+            printf("marks is B");
+            break;
+        case 55 ... 64 :
+            printf("marks is C");
+            break;
+        case 45 ... 54 :
+            printf("Marks is D");
+            break;
+        default :
+            printf("Failed");
+            break;
+
+    }
+    printf(" student_id:\n ");
+    scanf("%d", &studentNo);
+    scanf("%c")
+    }
+    */
+
+    int nOL, cL=0, vaL = 0, sm = 0, i;
+    printf("enter nOL \n");
+    scanf("%d", &nOL);
+    printf("enter vaL \n");
+    scanf("%d", &vaL);
+    for(i=1, i =nOL, i++){
+    while(vaL != -1){
+        sm += vaL;
+        cL ++;
+        scanf("%d", &vaL);
+    }
+    float ans = (float)sm/(float)cL ;
+    printf("%.2f", ans);
+    }
+    return 0;
+}
