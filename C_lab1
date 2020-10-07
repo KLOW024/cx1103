@@ -3,7 +3,7 @@
 
 int main()
 {
-    /*
+    /*qn1
     int studentNo = 0, mark;
     printf(" student_id:\n ");
     scanf("%d", &studentNo);
@@ -33,20 +33,34 @@ int main()
     scanf("%c")
     }
     */
-
+    //qn2
     int nOL, cL=0, vaL = 0, sm = 0, i;
     printf("enter nOL \n");
     scanf("%d", &nOL);
-    printf("enter vaL \n");
-    scanf("%d", &vaL);
-    for(i=1, i =nOL, i++){
-    while(vaL != -1){
-        sm += vaL;
-        cL ++;
-        scanf("%d", &vaL);
+    for(i=1; i <=nOL; i++){
+            printf("enter vaL \n");
+            scanf("%d", &vaL);
+            while(vaL != -1){
+                    sm += vaL;
+                    cL ++;
+                    scanf("%d", &vaL);
+                    }
+            float ans = (float)sm/(float)cL ;
+            printf("%.2f\n", ans);
+            vaL = sm = cL = 0;
+
     }
-    float ans = (float)sm/(float)cL ;
-    printf("%.2f", ans);
+    //qn3
+    int i, d, j, k;
+    printf("enter range :");
+    scanf("%d", &d);
+    for(j =1; j <=d; j++){
+        k = (j%3 != 0) ? j%3 : 3;
+        for(i=1; i<=j; i++){
+        printf("%d", k);
+
+    }printf("\n");
+
     }
     return 0;
 }
