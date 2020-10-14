@@ -3,7 +3,7 @@
 #include  <math.h>
 
 double function1(double h, double i, double j, double k);
-double function2(double *h, double *i, double *j, double *k);
+double function2(double *h, double *i, double *j, double *k, double *distance);
 int main()
 {
     double x1, x2, y1, y2;
@@ -21,9 +21,11 @@ double function1(double h, double i, double j, double k)
     return ans;
 
 }
-double function2(double *h, double *i, double *j, double *k)
+double function2(double *h, double *i, double *j, double *k, double *distance)
 {
     printf("%f, %f, %f, %f\n", *h, *i, *j, *k);
-    return function1(*h, *i, *j, *k);
+    *distance = function1(*h, *i, *j, *k);
+    return *distance;
 }
+
 
