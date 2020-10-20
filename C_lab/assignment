@@ -30,3 +30,38 @@ void printPattern2(int height)
         }
 }
 //end of assignment 1
+
+//assignment 2
+#include <stdio.h>
+int countEvenDigits1(int number);
+void countEvenDigits2(int number, int *count);
+int main()
+{
+ int number, result;
+
+ printf("Enter a number: \n");
+ scanf("%d", &number);
+ printf("countEvenDigits1(): %d\n", countEvenDigits1(number));
+ countEvenDigits2(number, &result);
+ printf("countEvenDigits2(): %d\n", result);
+ return 0;
+}
+int countEvenDigits1(int number)
+{
+    int num = number, sum=0;
+    while(num != 0){
+    if(num % 2 == 0){
+        sum += 1;
+    }num = num/10;
+    }return sum;
+}
+void countEvenDigits2(int number, int *count)
+{
+    int num = number, sum=0;
+    while(num != 0){
+    if(num % 2 == 0){
+        sum += 1;
+    }num = num/10;
+    } *count = sum;
+}
+//end of assignment 2
