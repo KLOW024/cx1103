@@ -1,0 +1,32 @@
+//assignment 1
+#include <stdio.h>
+void printPattern2(int height);
+int main()
+{
+ int height;
+ printf("Enter the height: \n");
+ scanf("%d", &height);
+ printf("printPattern2(): \n");
+ printPattern2(height);
+ return 0;
+}
+void printPattern2(int height)
+{
+    int j, k;
+    char i;
+    for(j =1; j <=height; j++){
+        switch(j%2){
+        case 0 :
+            for(k=0;k<j;k++){
+                i = (k%2 ==0? 'A' : 'B');
+                printf("%c", i);}printf("\n");
+                break;
+        default :
+            for(k=0;k<j;k++){
+                i = (k%2 ==0? 'B' : 'A');
+                printf("%c", i);}printf("\n");
+                break;
+            }
+        }
+}
+//end of assignment 1
