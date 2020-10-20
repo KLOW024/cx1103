@@ -111,3 +111,34 @@ void transpose(int ar[][SIZE], int rowsize, int colSize){
 
 }
 //end of qn3
+
+//qn4
+#include <stdio.h>
+#define SIZE 4
+
+
+void reduceMatrix2D(int ar[][SIZE], int rowSize, int colSize);
+int main()
+{
+    int i,j;
+    int ar[4][4] = {1,2,3,4, 1,1,2,2, 3,3,4,4, 4,5,6,7};
+    reduceMatrix2D(ar, 4, 4);
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            printf("%d,", ar[i][j]);
+        }printf("\n");
+    }
+    return 0;
+}
+
+void reduceMatrix2D(int ar[][SIZE], int rowSize, int colSize){
+    int i,j;
+    for(i=0;i<colSize;i++){
+        for(j=i+1;j<rowSize;j++){
+            ar[i][i] += ar[j][i];
+            ar[j][i] =0;
+        }
+    }
+
+}
+//end of qn 4
