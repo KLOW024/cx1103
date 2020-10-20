@@ -52,15 +52,15 @@ int main()
     }
     */
     /*
-    int i, d, j, k;
-    printf("enter range :");
-    scanf("%d", &d);
-    for(j =1; j <=d; j++){
-        k = (j%3 != 0) ? j%3 : 3;
-        for(i=1; i<=j; i++){
-        printf("%d", k);
+        int i, d, j, k;
+        printf("enter range :");
+        scanf("%d", &d);
+        for(j =1; j <=d; j++){
+            if(j%3 == 0){k=3;}else {k=j%3;};
+            for(i=1; i<=j; i++){
+            printf("%d", k);
 
-    }printf("\n");
+        }printf("\n");
 
     }*/
 
