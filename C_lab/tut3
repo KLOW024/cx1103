@@ -1,0 +1,80 @@
+//qn 2
+#include <stdio.h>
+
+void freq_distr(int ar[], int N);
+void sort(int ar[], int N);
+
+int main()
+
+{
+
+   int N, d, k; /* N is user input on how many, d is index for array, k is no. in array */
+
+   printf("Pls enter N : \n");
+   scanf("%d", &N);                 /* User input for N */
+
+   int ar[N] ;                  /* initialising array*/
+   freq_distr(ar, N);           /* creating array of n */
+   printf("\n");
+   sort(ar, N);                 /* sort fn in acsending order */
+   printf("sorted value is \n");
+   for(d=0;d<N;d++){            //printing values for debugging
+        printf("%d ,", ar[d]);
+   }printf("\n");
+   
+   printf("0-9   |");for(k=0;k<N;k++){    //start of 0-9
+   if(ar[k] < 10){printf("*");}}
+   printf("\n");
+   printf("10-19 |");for(k=0;k<N;k++){    //start of 10-19
+   if(ar[k] < 20 && ar[k]> 9){printf("*");}}
+   printf("\n");
+   printf("20-29 |");for(k=0;k<N;k++){    //start of 20-29
+   if(ar[k] < 30 && ar[k] > 19){printf("*");}}
+   printf("\n");
+   printf("30-39 |");for(k=0;k<N;k++){    //start of 30-39
+   if(ar[k] < 40 && ar[k]> 29){printf("*");}}
+   printf("\n");
+   printf("40-49 |");for(k=0;k<N;k++){    //start of 40-49
+   if(ar[k] < 50 && ar[k]> 39){printf("*");}}
+   printf("\n");
+   printf("50-59 |");for(k=0;k<N;k++){    //start of 50-59
+   if(ar[k] < 60 && ar[k] > 49){printf("*");}}
+   printf("\n");
+   printf("60-69 |");for(k=0;k<N;k++){    //start of 60-69
+   if(ar[k] < 70 && ar[k]> 59){printf("*");}}
+   printf("\n");
+   printf("70-79 |");for(k=0;k<N;k++){    //start of 70-79
+   if(ar[k] < 80 && ar[k]> 69){printf("*");}}
+   printf("\n");
+   printf("80-89 |");for(k=0;k<N;k++){    //start of 80-89
+   if(ar[k] < 90 && ar[k]> 79){printf("*");}}
+   printf("\n");
+   printf("90-99 |");for(k=0;k<N;k++){    //start of 90-99
+   if(ar[k] < 100 && ar[k] > 89){printf("*");}}
+   printf("\n");
+   return 0;
+
+}
+
+void freq_distr(int ar[], int N){       //adding ran no into array
+    int i, n;       
+    for(i =0; i < N; i++){
+        n = rand() % 100;
+        printf("%d ,", n);
+        ar[i] = n;
+    }
+}
+
+void sort(int ar[], int N){           //sorting array
+    int i, j, a;
+    for( i =0; i < N; ++i){
+        for(j = i +1; j <N; ++j){
+            if (ar[i]>ar[j]){
+                a = ar[i];
+                ar[i]=ar[j];
+                ar[j]= a;
+            }
+        }
+    }
+}
+// end of qn2
