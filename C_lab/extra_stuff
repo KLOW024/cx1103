@@ -1,0 +1,13 @@
+//random number in C
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main {
+    srand(time(NULL));
+    n = (rand() % 100);        //%100 for no. from 0 to 99
+    return 0;
+}
+   
