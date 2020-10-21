@@ -1,6 +1,5 @@
 //qn 2
 #include <stdio.h>
-#include <stdio.h>
 
 void freq_distr(int ar[], int N);
 void sort(int ar[], int N);
