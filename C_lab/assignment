@@ -105,3 +105,135 @@ int symmetry2D(int M[][SIZE], int rowSize, int colSize)
     }return flag;
 }
 //end of assignment 3
+
+//start of assignment 4(case 3 fail idk why but when manually do, its correct)
+	/*edit*/
+
+/*custom header*/
+
+	/*end_edit*/
+#include <stdio.h>
+#define MAX 10
+void initialize(int *size, int ar[]);
+void insert(int max, int *size, int ar[], int num);
+void iremove(int *size, int ar[], int num);
+void display(int size, int ar[]);
+int main()
+{
+   int  option = 0;
+   int  num, ar[MAX], size = 0;
+
+   printf("Please select an option: \n");
+   printf("(1) Initialize the array \n");
+   printf("(2) Insert an integer \n");
+   printf("(3) Remove an integer \n");
+   printf("(4) Display the numbers stored in the array \n");
+   printf("(5) Quit \n");
+   do {
+      printf("Enter your choice: \n");
+      scanf("%d", &option);
+      switch (option) {
+         case 1:
+            initialize(&size, ar);
+            break;
+         case 2:
+            printf("Enter an integer: \n");
+            scanf("%d", &num);
+            insert(MAX, &size, ar, num);
+            break;
+         case 3:
+            printf("Enter the integer to be removed: \n");
+            scanf("%d", &num);
+            iremove(&size, ar, num);
+            break;
+         case 4:
+            display(size, ar);
+            break;
+         default:
+            break;
+      }
+   } while (option < 5);
+   return 0;
+}
+void display(int size, int ar[])
+{
+   int i;
+
+   printf("The %d numbers in the array: \n", size);
+   for(i = 0; i < size; i++)
+      printf("%d ", ar[i]);
+   printf("\n");
+
+}
+void initialize(int *size, int ar[])
+{
+	/*edit*/
+   /* Write your code here */
+   int i, k,t,temp;
+   printf("Enter the total number of integers (MAX=10): \n");
+   scanf("%d", size);
+   printf("Enter the integers: \n");
+   for(i =0; i<*size; i++){
+        scanf("%d", &k);
+        ar[i]= k;
+        }
+
+    for(t=0;t<*size;t++){       //sort by comparing 2 no side by side for size times
+        for(i=0;i<*size-1;i++){
+            if(ar[i]>ar[i+1]){
+                temp = ar[i+1];
+                ar[i+1] = ar[i];
+                ar[i]=temp;
+            }
+        }
+    }
+	/*end_edit*/
+}
+void insert(int max, int *size, int ar[], int num)
+{
+	/*edit*/
+   /* Write your code here */
+   int i, j;
+   if(*size == 10){
+    printf("The array is full\n");
+   }
+   else{
+        ar[*size]= num;
+        //sorting time
+        int temp;
+        for(j=0;j<*size;j++){
+        for(i=0;i<*size;i++){
+            if(ar[i+1]<ar[i]){
+                temp = ar[i+1];
+                ar[i+1] = ar[i];
+                ar[i]=temp;
+            }
+        }}(*size)++;
+   }
+}
+
+void iremove(int *size, int ar[], int num)
+{
+	/*edit*/
+   /* Write your code here */
+   int i, j, k, temp, flag = 0; 
+   for(i=0;i<*size;i++){
+       if(ar[i]==num){
+           ar[i]=ar[*size-1]+1; //let the value at ar[i] be higher than max by 1
+           printf("%d\n",ar[i]);
+           flag = 1;
+       } 
+
+       if(ar[i]>ar[i+1]){    //sort the values again to get ar[i] to the back
+           temp = ar[i+1];
+            ar[i+1] = ar[i];
+            ar[i]=temp;
+       }
+   }if(*size==0){printf("The array is empty\n");}
+   else if(flag == 0){printf("The number is not in the array\n");} //flag will be zero if code on top not executed
+   else{(*size)--;}
+
+
+	/*end_edit*/
+}
+//end of assignment 4
