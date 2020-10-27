@@ -1,0 +1,24 @@
+#include  <stdio.h>
+#include  <string.h>
+
+int unknown(char str[ ], char c);
+
+int main()
+{   char str[10] = "hello", c = 'l';
+    printf("%s\n",str);
+    printf("%d",unknown(str, c));
+    return 0;
+}
+int unknown(char str[ ], char c)
+{
+int x, y=0, z=0;
+
+for (x=0; str[x] != '\0'; x++)
+    if (str[x] != c )
+    {str[y++] = str[x];printf("%c\n",str[x]);}
+    else z++;
+    str[y] = '\0';
+    return z;
+}
+//returns the amount time the character appears in the string
+
