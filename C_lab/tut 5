@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <math.h>
+
+struct circle {
+    double radius;
+    double x;
+    double y;
+};
+
+int intersect(struct circle c1, struct circle c2);
+
+int main() {
+    struct circle c1 = {5, 3,4};
+    struct circle c2 = {2, 5, 3};
+    printf("%d", intersect(c1,c2));
+      
+}
+
+int intersect(struct circle c1, struct circle c2){
+    double dist;
+    dist = sqrt(pow(c2.y-c1.y, 2)+pow(c2.x-c1.x, 2));
+    if(dist <= (c1.radius+c2.radius)){
+        return 1;
+    }
+    else return 0;
+}
+// doesnt work if one circle is in the other circle and not touching
+
