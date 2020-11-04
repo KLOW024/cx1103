@@ -73,3 +73,60 @@ float compute2(bexpression *expr){
         case '/': return expr -> operand1 / expr -> operand2;
     }
 }
+
+//qn3
+#include <stdio.h>
+
+typedef struct {
+   int id;           /* staff identifier */
+   int totalLeave;   /* the total number of days of leave allowed */
+   int leaveTaken;
+} leaveRecord;
+
+void getInput(leaveRecord list[ ], int *n);
+int mayTakeLeave(leaveRecord list[ ], int id, int leave, int n); 
+void printList(leaveRecord list[ ], int n); 
+
+int main() {
+    int n =3;
+    int *p = &n;
+    leaveRecord k[10];
+    printf("%d, %d, %d\n", k[0].id, k[0].totalLeave, k[0].leaveTaken);
+    getInput(k, p);
+    printf("print1 %d, %d, %d\n",k[0].id, k[0].totalLeave, k[0].leaveTaken);
+    printf("print2 %d, %d, %d\n",k[1].id, k[1].totalLeave, k[1].leaveTaken);
+    printf("y/n is %d\n",mayTakeLeave(k, 20, 3, *p));
+    printList(k, *p);
+}
+
+void getInput(leaveRecord list[ ], int *n){
+    *n =0;
+    
+    while(1){
+        printf("input 3 integers representing identifier, leaves allowed and taken\n");
+        scanf("%d", &list[*n].id);
+        if(list[*n].id == -1)break;
+        scanf("%d %d", &list[*n].totalLeave, &list[*n].leaveTaken);
+        printf("print%d %d, %d, %d\n",*n, list[*n].id, list[*n].totalLeave, list[*n].leaveTaken);
+        (*n)++;
+
+    }
+}
+
+int mayTakeLeave(leaveRecord list[ ], int id, int leave, int n){
+    int i;
+    for(i=0;i<n;i++){
+        if(list[i].id == id)break;
+        else if(i==n-1)return-1;
+    }
+    if( leave <= (list[i].totalLeave-list[i].leaveTaken))return 1;
+    else return 0;
+
+}
+
+void printList(leaveRecord list[], int n){
+    int i;
+    for(i=0; i<n; i++){
+        printf("%d staff is %d %d %d\n", i, list[i].id, list[i].totalLeave, list[i].leaveTaken);
+    }
+}
