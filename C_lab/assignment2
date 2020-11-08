@@ -85,13 +85,35 @@ void processString(char *str, int *totVowels, int *totDigits)
 
 
 //qn3 countsubstr
-int count=0, i; 
+#include <stdio.h>
+#include <string.h>
+#define INIT_VALUE -1
+int countSubstring(char str[], char substr[]);
+int main()
+{
+ char str[80], substr[80], *p;
+ int result=INIT_VALUE;
+
+ printf("Enter the string: \n");
+ fgets(str, 80, stdin);
+ if (p=strchr(str,'\n')) *p = '\0';
+ printf("Enter the substring: \n");
+ fgets(substr, 80, stdin);
+ if (p=strchr(substr,'\n')) *p = '\0';
+ result = countSubstring(str, substr);
+ printf("countSubstring(): %d\n", result);
+ return 0;
+}
+int countSubstring(char str[], char substr[])
+{
+    /* Write your code here */
+    int count=0, i; 
     char dummy[80];
     for(i=0;i<strlen(str);i++){             //compares str[i:len] to substr
         strcpy(dummy,str+i);                //copies OG string into a temp str
         dummy[strlen(substr)] = '\0';       //at temp[substrlength] slice it
         if(strcmp(dummy,substr)==0){        //compare the temp to the substr
             count++;i+=(strlen(substr)-1);  //if same then add count and skip the ones that match
-        };
+        }
     }return count;
-}
+ } 
