@@ -43,3 +43,42 @@ char *longestStrInAr(char str[N][40], int size, int *length)
 
 	/*end_edit*/
 }
+
+//qn2 processstring
+#include <stdio.h>
+#include <string.h>
+void processString(char *str, int *totVowels, int *totDigits);
+int main()
+{
+ char str[50], *p;
+ int totVowels, totDigits;
+ printf("Enter the string: \n");
+ fgets(str, 80, stdin);
+ if (p=strchr(str,'\n')) *p = '\0';
+ processString(str, &totVowels, &totDigits);
+ printf("Total vowels = %d\n", totVowels);
+ printf("Total digits = %d\n", totDigits);
+ return 0;
+}
+void processString(char *str, int *totVowels, int *totDigits)
+{
+    /* Write your program code here */
+    int i,j,k;
+    *totVowels =0; *totDigits = 0;
+    char vowels[12] = { "aeiouAEIOU" };
+    char no_[12] = { "1234567890" };
+    for(i=0;i<strlen(str);i++){
+        for(j=0;j<10;j++){
+            if(*(str+i) == vowels[j]){
+                (*totVowels)++;
+            }
+        }
+        for(k=0;k<10;k++){
+            if(*(str+i) == no_[k]){
+                //printf("the digits are %c\n", *(str+i));
+                (*totDigits)++;
+            }
+        }
+    }
+
+} 
