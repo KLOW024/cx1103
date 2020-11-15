@@ -50,7 +50,7 @@ double average()
    return (es)/(i);
 }
 
-//Ex2d countchar
+//Ex2 countchar
 #include <stdio.h>
 int main() 
 {
