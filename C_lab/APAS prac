@@ -158,3 +158,38 @@ int findTarget(char *target, char nameptr[][80], int size)
        }
    }return -1;
 }
+
+//EX5 Panlindrome
+#include <stdio.h>
+#define INIT_VALUE -1
+int palindrome(char *str);
+int main()
+{
+   char str[80];
+   int result = INIT_VALUE;
+   
+   printf("Enter a string: \n");
+   fgets(str, 80, stdin);
+   result = palindrome(str);
+   if (result == 1)
+      printf("palindrome(): A palindrome\n");
+   else if (result == 0)
+      printf("palindrome(): Not a palindrome\n");    
+   else 
+      printf("An error\n");      
+   return 0;
+}
+int palindrome(char *str)
+{
+   /* Write your code here */
+   int i, len = 0;
+   char *p;
+   if(p=strchr(str,'\n'))*p='\0';
+   len = strlen(str);
+   char opp_word[len];
+   for(i=0;i<len;i++){
+       opp_word[i] = str[len -1 -i];
+   }opp_word[i] = '\0';
+   if(strcmp(str,opp_word)==0) return 1;
+   else return 0;
+}
