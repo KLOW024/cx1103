@@ -1,0 +1,51 @@
+//Struct EX6 computeAverage
+#include <stdio.h>
+#include <string.h>
+struct student{
+   char name[20]; /* student name */
+   double testScore; /* test score */
+   double examScore; /* exam score */
+   double total;  /* total = (testScore+examScore)/2 */
+};
+double average();
+int main()
+{
+
+   printf("average(): %.2f\n", average());           
+   return 0;
+}
+double average()
+{
+   /* Write your program code here */
+   struct student stud[50];
+   char dummy, test1[20], *p;
+   double ts = 0, es =0, tt =0;
+   int i=0,k=0, j,s=4;
+   while(1){
+      printf("Enter student name: \n");
+      fgets(stud[k].name, 80, stdin);
+      strcpy(test1,stud[k].name);
+      if(p = strchr(test1, '\n'))*p='\0';
+      s =strcmp( test1 ,"END");
+      if(s == 0){
+         break;}
+      printf("Enter Test Score:\n");
+      scanf("%lf", &ts);
+      stud[k].testScore = ts;
+      scanf("%c", &dummy);
+      printf("Enter exam score:\n");
+      scanf("%lf", &(stud[k].examScore));
+      //printf("ts is %.2f\n", stud[k].testScore);
+      stud[k].total =(stud[k].testScore + stud[k].examScore)/2;
+      printf("Student %s total = %.2f",test1, stud[k].total);
+      scanf("%c", &dummy);
+      k++;
+      i++;
+      
+      printf("\n");
+
+   }
+   for(j=0;j<=i;j++)es += stud[j].total;
+   if(i==0) return 0;
+   return (es)/(i);
+}
