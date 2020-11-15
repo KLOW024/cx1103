@@ -49,3 +49,36 @@ double average()
    if(i==0) return 0;
    return (es)/(i);
 }
+
+//Ex2d countchar
+#include <stdio.h>
+int main() 
+{
+   int ccount = 0, dcount = 0;
+   char ch;
+   printf("Enter your characters (# to end): \n");
+
+   /* Write your program code here */
+   int j, flag = 0;
+   char no_[]= {'0','1','2','3', '4','5','6','7','8','9'} ;
+   while(ch != '#'){
+       flag =0;
+       scanf("%c", &ch);
+       if(ch == '#')break;
+       for(j=0;j<10;j++){
+          //printf("c is %c\n", no_[j]);
+           if(ch == no_[j]){
+              flag =1; 
+              dcount++;
+              printf("%c, %c\n",ch,no_[j]);
+         }
+       }if((ch != ' ' )&& (flag ==0)){
+         printf("c is %c\n",ch);
+         ccount++;}
+   } 
+   
+
+   printf("The number of digits: %d\n", dcount);
+   printf("The number of letters: %d\n", ccount);
+   return 0;
+}
