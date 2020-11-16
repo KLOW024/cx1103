@@ -11,3 +11,8 @@ int main {
     return 0;
 }
    
+size_t strlen(char * s) {     //for removing '\0' when counting strlen()
+    char *p = s;
+    for (; *p != '\0'; p++) {}
+    return p - s;
+}
