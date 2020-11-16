@@ -123,3 +123,32 @@ void digitPos2(int num, int digit, int *result)
        else num = num/10;
    }//printf("result is %d\n", *result);
 }
+
+
+//EX5 stringcpy
+#include <stdio.h>
+char *stringncpy(char *s1, char *s2, int n);
+int main()
+{
+   char sourceStr[40], targetStr[40], *target;
+   int length;   
+   printf("Enter the string: \n");
+   fgets(sourceStr, 80, stdin);
+   printf("Enter the number of characters: \n");
+   scanf("%d", &length);   
+   target = stringncpy(targetStr, sourceStr, length);
+   printf("stringncpy(): %s\n", target);
+   return 0;
+}
+char *stringncpy(char *s1, char *s2, int n)
+{
+   /* Write your program code here */
+   int i;
+   char temp[n+1];
+   //printf("s2 is %c",s2[0]);
+   for(i=0;i<n;i++){
+       s1[i] = s2[i];
+       //printf("%s\n", s1);
+   }//printf("%s\n", s1);
+   return s1;
+  }
