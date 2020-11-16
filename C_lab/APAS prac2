@@ -29,3 +29,97 @@ int main()
    printf("Net pay = %.2f\n", netPay);
    return 0;  
 }
+
+//Ex3 digitpos(Wrong; counted from left)
+#include <stdio.h>
+int digitPos1(int num, int digit);
+void digitPos2(int num, int digit, int *result);
+int main()
+{
+   int number, digit, result=0;
+
+   printf("Enter the number: \n");
+   scanf("%d", &number);
+   printf("Enter the digit: \n");
+   scanf("%d", &digit);            
+   printf("digitPos1(): %d\n", digitPos1(number, digit));           
+   digitPos2(number, digit, &result);          
+   printf("digitPos2(): %d\n", result);   
+   return 0;
+}
+int digitPos1(int num, int digit) 
+{
+   /* Write your program code here */
+   int temp_n,no_ = 0, i;
+   temp_n = num;
+   while(1){
+       if(temp_n == 0)break;
+       else temp_n=temp_n/10;no_++;
+   }//printf("%d\n",no_);
+   for(i=0;i<no_;i++){
+       if(num%10==digit) return (no_ - i -1);
+       else num = num/10;
+   }return 0;
+}
+void digitPos2(int num, int digit, int *result) 
+{
+   /* Write your program code here */
+   int temp_n,no_ = 0, i;
+   *result = 0;
+   temp_n = num;
+   while(1){
+       if(temp_n == 0)break;
+       else temp_n=temp_n/10;no_++;
+   }//printf("%d\n",no_);
+   for(i=0;i<no_;i++){
+       if(num%10==digit) {*result = (no_ - i -1);break;}
+       else num = num/10;
+   }//printf("result is %d\n", *result);
+}
+
+//Ex3 digitpos (Passed Pretest)
+#include <stdio.h>
+int digitPos1(int num, int digit);
+void digitPos2(int num, int digit, int *result);
+int main()
+{
+   int number, digit, result=0;
+
+   printf("Enter the number: \n");
+   scanf("%d", &number);
+   printf("Enter the digit: \n");
+   scanf("%d", &digit);            
+   printf("digitPos1(): %d\n", digitPos1(number, digit));           
+   digitPos2(number, digit, &result);          
+   printf("digitPos2(): %d\n", result);   
+   return 0;
+}
+int digitPos1(int num, int digit) 
+{
+   /* Write your program code here */
+   int temp_n,no_ = 0, i;
+   temp_n = num;
+   while(1){
+       if(temp_n == 0)break;
+       else temp_n=temp_n/10;no_++;
+   }//printf("%d\n",no_);
+   for(i=0;i<no_;i++){
+       if(num%10==digit) return (i+1);
+       else num = num/10;
+   }return 0;
+}
+void digitPos2(int num, int digit, int *result) 
+{
+   /* Write your program code here */
+   int temp_n,no_ = 0, i;
+   *result = 0;
+   temp_n = num;
+   while(1){
+       if(temp_n == 0)break;
+       else temp_n=temp_n/10;no_++;
+   }//printf("%d\n",no_);
+   for(i=0;i<no_;i++){
+       if(num%10==digit) {*result = (i+1);break;}
+       else num = num/10;
+   }//printf("result is %d\n", *result);
+}
