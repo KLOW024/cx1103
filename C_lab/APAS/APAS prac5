@@ -77,7 +77,7 @@ void square2(int num, int *result)
 }
 
 
-//EX numDigits
+//EX3 numDigits
 #include <stdio.h>
 int numDigits1(int num);
 void numDigits2(int num, int *result);
