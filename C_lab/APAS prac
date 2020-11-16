@@ -193,3 +193,27 @@ int palindrome(char *str)
    if(strcmp(str,opp_word)==0) return 1;
    else return 0;
 }
+
+
+
+//EX2 computeseries
+#include <stdio.h>
+int main()
+{
+   int n, denominator = 1;
+   float x, result = 1.0, numerator = 1.0;
+
+   printf("Enter x: \n");
+   scanf("%f", &x);
+
+   /* Write your program code here */
+   for(n=1;n<11;n++){
+       numerator = pow(x,n);
+       denominator *= n;
+       //printf("%d\n",denominator);
+       result += (numerator/denominator);
+   }
+
+   printf("Result = %.2f\n",  result);
+   return 0;
+}
