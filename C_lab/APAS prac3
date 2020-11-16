@@ -18,3 +18,33 @@ int main()
    printf("Result = %.2f\n",  result);
    return 0;
 }
+
+
+//EX2 printPattern(same as lab1)
+#include <stdio.h>
+int main()
+{
+   int row, col, height;
+   int num = 0;
+   printf("Enter the height: \n");
+   scanf("%d", &height);
+   printf("Pattern: \n");
+
+   /* Write your program code here */
+   int i,j,k;
+   //printf("ans is %d",1%2);
+   for(i=1;i<height+1;i++){
+       switch(i%3){
+            case 0 :for(j=0;j<i;j++){printf("3");}
+                    printf("\n");break;
+            default:k=i%3;//printf("k is %d\n",k);
+                    switch(k){
+                        case(1):for(j=0;j<i;j++){
+                        printf("1");}printf("\n");break;
+                        case(2):for(j=0;j<i;j++){printf("2");}
+                        printf("\n");break;
+                    }
+   
+   }}
+   return 0;
+}
