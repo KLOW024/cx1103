@@ -20,7 +20,7 @@ double average()
    struct student stud[50];
    char dummy, test1[20], *p;
    double ts = 0, es =0, tt =0;
-   int i=0,k=0, j,s=4;
+   int i=0,k=0, j,s;
    while(1){
       printf("Enter student name: \n");
       fgets(stud[k].name, 80, stdin);
