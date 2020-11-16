@@ -1,0 +1,31 @@
+//Ex2 computeNetpay
+#include <stdio.h>
+int main() 
+{        
+   int hours;
+   float tax, grossPay, netPay;
+      
+   printf("Enter hours of work: \n");
+   scanf("%d", &hours);
+
+   /* Write your program code here */
+   int o_t = 0;
+   if(hours>40){o_t = hours - 40;}
+   //printf("%d %d\n",o_t,hours );
+   grossPay = (hours-o_t)*6 + o_t*9;
+   //printf("%lf\n",grossPay);
+   switch( (int) grossPay){
+                case 0 ... 1000 : tax = grossPay * 0.1;
+                            break;
+                case 1001 ... 1500 : tax = (grossPay-1000)*0.2 + 100;//100 from 1st 1000
+                                    break;
+                default : tax = (grossPay-1500)*0.3+200;break;
+   }
+   
+   
+   netPay = grossPay - tax;
+   printf("Gross pay = %.2f\n", grossPay);
+   printf("Tax = %.2f\n", tax);
+   printf("Net pay = %.2f\n", netPay);
+   return 0;  
+}
